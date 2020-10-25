@@ -1,24 +1,122 @@
-# NgxHelper
+@vlah.io/ngx-helper
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Angular helper classes.
 
-## Code scaffolding
+### Usage
 
-Run `ng generate component component-name --project ngx-helper` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-helper`.
-> Note: Don't forget to add `--project ngx-helper` or else it will be added to the default project in your `angular.json` file. 
+#### Array Helper
+```
+  ArrayHelper.move(arr: any[], oldIndex: number, newIndex: number): any[]
+  ArrayHelper.move([1, 2, 3], 1, 2) -> [1, 3, 2]
+```
 
-## Build
+#### Browser Helper
+```
+  BrowserHelper.saveAs(filePath: string, forceDownloadAndSetName: string = null): void
+```
 
-Run `ng build ngx-helper` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### Event Helper
+```
+  Event.dispatchKeyboardEvent(el: HTMLElement | Document | Window, event: 'keyup' | 'keydown' | 'keypress', key: string): void
+```
 
-## Publishing
+#### Form Helper
+```
+  // Expects the form to have set the `password` and the `passwordConfirmation` input fields
+  FormHelper.passwordMatchValidator(control: AbstractControl): void
+```
 
-After building your library with `ng build ngx-helper`, go to the dist folder `cd dist/ngx-helper` and run `npm publish`.
+#### Math Helper
+```
+  MathHelper.isNumber(n: any): number | false
+  MathHelper.isNumber('1,000.22') -> true
 
-## Running unit tests
+  MathHelper.isNaN(n: any): boolean
+  MathHelper.isNaN(100) -> false
+```
 
-Run `ng test ngx-helper` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Object Helper
+```
+  ObjectHelper.merge(obj1: any, obj2: any): any
+  ObjectHelper.merge({a: 1}, {b: 2}) -> {a: 1, b: 2}
 
-## Further help
+  ObjectHelper.read(obj: any, path: string): any
+  ObjectHelper.read({a: b: { 2}}, 'a.b') -> 2
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  ObjectHelper.readMultiIndex(obj: any, arr: any[]): any
+  ObjectHelper.readMultiIndex({a: b: { 2}}, ['a', 'b']) -> 2
+
+  ObjectHelper.readPathIndex(obj: any, str: string): any
+  ObjectHelper.readPathIndex({a: b: { 2}}, 'a.b') -> 2
+
+  // Array | Object | String | Date | RegExp | Function | Boolean | Number | Null | Undefined
+  ObjectHelper.isTypeOff(el: any, type: string): any
+  ObjectHelper.isTypeOff([], 'Array') -> true
+```
+
+#### String Helper
+```
+  StringHelper.splitAtCapitalLetters(str: string): string
+  StringHelper.splitAtCapitalLetters('someRandomText') -> 'some Random Text'
+
+  StringHelper.splitUcWords(str: string): string
+  StringHelper.splitUcWords('someRandomText') -> 'Some Random Text'
+
+  StringHelper.getRandomNumber(low: number, high: number): number
+
+  StringHelper.isEmail(str: string): boolean
+  StringHelper.isEmail('email@example.com') -> true
+```
+
+#### Date Helper
+```
+  // Ex. 2017-06-14T00:00:00+00:00
+  DateHelper.toUTCAtomDate(date: Date): string
+
+  // Ex. 2017-06-14T00:00:00+00:00
+  DateHelper.toLocalAtomDate(date: Date): string
+
+  // Ex. 2017-06-14T00:00:00-05:00
+  DateHelper.toLocalAtomDateWithLocalTimezone(date: Date): string
+
+  // Ex. 2017-06-14T00:00:00-05:00
+  DateHelper.toLocalAtomDateWLT(date: Date): string
+
+  // Ex. 2017-02-21T02:17:20+00:00
+  DateHelper.toUTCAtomDateTime(date: Date): string
+
+  // Ex. 2017-02-21T02:17:20+00:00
+  DateHelper.toLocalAtomDateTime(date: Date): string
+
+  // Ex. 2017-02-21T02:17:20+01:00
+  DateHelper.toLocalAtomDateTimeWithLocalTimezone(date: Date): string
+
+  // Ex. 2017-06-14
+  DateHelper.getUTCDate(date: Date): string
+
+  // Ex. 2017-06-14
+  DateHelper.getLocalDate(date: Date): string
+
+  // Ex. 08:24:36
+  DateHelper.getUTCTime(date: Date): string
+
+  // Ex. 08:24:36
+  DateHelper.getLocalTime(date: Date): string
+
+  DateHelper.formatUTC(str: string, format: string): string
+  DateHelper.formatLocal(str: string, format: string): string
+  DateHelper.formatDateUTC(date: Date, format: string): string
+  DateHelper.formatDateLocal(date: Date, format: string): string
+  DateHelper. parseFormat(year: number, month: number, date: number, hours: number, minutes: number, seconds: number, format: string): string
+
+
+  DateHelper.pad(n: number): string
+  DateHelper.pad(1) -> 01
+  DateHelper.pad(10) -> 10
+
+  DateHelper.offset(n: number): string
+  DateHelper.offset(-120) -> 2
+  DateHelper.offset(120) -> -2
+```
+
+For more details read [here](https://github.com/vlah-io/ngx-helper/blob/master/INSTALLATION.md).
