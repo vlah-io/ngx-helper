@@ -17,9 +17,7 @@ export class StringHelper {
       .join(' ')
       .toLowerCase()
       .replace(/\b[a-z]/g,
-        (letter) => {
-          return letter.toUpperCase();
-        }
+        (letter) => letter.toUpperCase()
       );
 
     return str;

@@ -1,8 +1,8 @@
 export class BrowserHelper {
   // https://stackoverflow.com/questions/17527713/force-browser-to-download-image-files-on-click
-  static saveAs(filePath: string, forceDownloadAndSetName: string = null): void {
+  static saveAs(filePath: string, forceDownloadAndSetName?: string | undefined): void {
     const c = (new Date()).getTime();
-    const d = {};
+    const d: any = {};
     d[c] = document.createElement('a');
     d[c].href = filePath;
     d[c].target = '_blank';

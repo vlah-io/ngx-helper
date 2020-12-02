@@ -6,7 +6,7 @@ Package generated with `angular-cli` as follows
 ### Create new
 
 ```
-  ng new ngx-helper --createApplication=false --prefix=vlah
+  ng new ngx-helper --createApplication=false --prefix=vlahio
   cd ngx-helper
 ```
 
@@ -14,7 +14,7 @@ Package generated with `angular-cli` as follows
 
 ```
   cd ngx-helper
-  ng generate library ngx-helper --prefix=vlah
+  ng generate library ngx-helper --prefix=vlahio
 ```
 
 ### Generate test application
