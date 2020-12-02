@@ -59,4 +59,12 @@ export class ObjectHelper {
     // return Object.prototype.toString.call(el).slice(8, -1) === type;
     return Object.prototype.toString.call(el) === `[object ${type}]`;
   }
+
+  static isNaN(nr: any): boolean {
+    const type = Object.prototype.toString.call(nr);
+    return isNaN(nr) || nr === '' || [
+      '[object String]',
+      '[object Number]'
+    ].indexOf(type) === -1;
+  }
 }

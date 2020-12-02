@@ -35,4 +35,18 @@ describe('ObjectHelper', () => {
       expect(ObjectHelper.isTypeOff({a: {b: 2}}, 'Object')).toBeTrue();
     }
   );
+
+  it(
+    'should return true',
+    () => {
+      expect(ObjectHelper.isNaN('not a number')).toBeTrue();
+    }
+  );
+
+  it(
+    'should return false',
+    () => {
+      expect(ObjectHelper.isNaN('1')).toBeFalse();
+    }
+  );
 });
