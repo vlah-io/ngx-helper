@@ -61,10 +61,15 @@ export class ObjectHelper {
   }
 
   static isNaN(nr: any): boolean {
-    const type = Object.prototype.toString.call(nr);
-    return isNaN(nr) || nr === '' || [
+    return isNaN(nr) || nr === '' || !ObjectHelper.isStringOrNumberObject(nr);
+  }
+
+  static isStringOrNumberObject(el: any): boolean {
+    const type = Object.prototype.toString.call(el);
+
+    return [
       '[object String]',
       '[object Number]'
-    ].indexOf(type) === -1;
+    ].indexOf(type) !== -1;
   }
 }

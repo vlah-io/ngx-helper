@@ -49,4 +49,11 @@ describe('ObjectHelper', () => {
       expect(ObjectHelper.isNaN('1')).toBeFalse();
     }
   );
+
+  it(
+    'should return true',
+    () => {
+      expect(ObjectHelper.isStringOrNumberObject('1')).toBeTrue();
+    }
+  );
 });
